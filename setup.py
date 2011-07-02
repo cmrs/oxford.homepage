@@ -12,22 +12,22 @@ def read(*rnames):
 version = open(os.path.join("oxford", "homepage", "version.txt")).read().strip()
 
 long_description = (
-    read('README.txt')
+    read(os.path.join('docs', 'README.txt'))
     + '\n' +
-    'Change history\n'
+    'Installing\n'
     '**************\n'
     + '\n' +
-    read('CHANGES.txt')
+    read(os.path.join('docs', 'INSTALL.txt'))
     + '\n' +
-    'Detailed Documentation\n'
+    'History\n'
     '**********************\n'
     + '\n' +
-    read('oxford', 'homepage', 'README.txt')
+    read(os.path.join('docs', 'HISTORY.txt'))
     + '\n' +
     'Contributors\n'
     '************\n'
     + '\n' +
-    read('CONTRIBUTORS.txt')
+    read(os.path.join('docs', 'CONTRIBUTORS.txt'))
     + '\n' +
     'Download\n'
     '********\n')
