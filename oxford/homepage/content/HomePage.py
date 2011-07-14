@@ -3,10 +3,11 @@ from zope.interface import implements
 from Products.Archetypes import atapi
 from Products.ATContentTypes.configuration import zconf
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
-from Products.KebleContent.config import PROJECTNAME
-from Products.KebleContent.interfaces import IHomePage
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from Products.validation import V_REQUIRED
+
+from oxford.homepage.config import PROJECTNAME
+from oxford.homepage.interfaces.homepage import IHomePage
 
 HomePageSchema = atapi.BaseSchema.copy() + atapi.Schema((
 
