@@ -23,8 +23,13 @@ class HomePage(ATFolder):
 
     schema = HomePageSchema
 
+    security.declarePublic('exclude_from_nav')
     def exclude_from_nav(self):
         return True
+
+    security.declarePublic('canSetConstrainTypes')
+    def canSetConstrainTypes(self):
+        return False
 
 registerType(HomePage, PROJECTNAME)
 
