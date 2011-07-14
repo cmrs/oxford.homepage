@@ -1,9 +1,11 @@
+from plone.app.folder.folder import ATFolderSchema
+
 from Products.Archetypes import atapi
 from Products.ATContentTypes.configuration import zconf
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 from Products.validation import V_REQUIRED
 
-HomePageSchema = atapi.BaseSchema.copy() + atapi.Schema((
+HomePageSchema = ATFolderSchema.copy() + atapi.Schema((
 
     atapi.TextField(
         name='mainText',
