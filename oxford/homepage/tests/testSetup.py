@@ -11,6 +11,17 @@ from Products.CMFCore.utils import getToolByName
 
 from base import OXFORD_HOMEPAGE_INTEGRATION_TESTING
 
+class TestInstallation(unittest.TestCase):
+    """Ensure product is properly installed"""
+    layer =  OXFORD_HOMEPAGE_INTEGRATION_TESTING
+
+    def setUp(self):
+        self.portal = self.layer['portal']
+
+    def testTypesInstalled(self):
+        portal_types = getToolByName(self.portal, 'portal_types')
+        assert 'HomePage' in portal_types.objectIds(), portal_types.objectIds()
+
 class TestReinstall(unittest.TestCase):
     """Ensure product can be reinstalled safely"""
     layer = OXFORD_HOMEPAGE_INTEGRATION_TESTING

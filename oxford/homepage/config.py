@@ -4,5 +4,5 @@
 PROJECTNAME = 'oxford.homepage'
 
 ADD_PERMISSIONS = {
-    # -*- extra stuff goes here -*-
+    'HomePage': 'OxfordHomepage: Add HomePage',
 }
