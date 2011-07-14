@@ -7,15 +7,15 @@
  <property name="description" i18n:translate=""></property>
  <property name="content_icon">document_icon.gif</property>
  <property name="content_meta_type">HomePage</property>
- <property name="product">KebleContent</property>
+ <property name="product">oxford.homepage</property>
  <property name="factory">addHomePage</property>
- <property name="immediate_view">homepage_view</property>
+ <property name="immediate_view">base_view</property>
  <property name="global_allow">True</property>
  <property name="filter_content_types">False</property>
  <property name="allowed_content_types">
  </property>
  <property name="allow_discussion">False</property>
- <property name="default_view">homepage_view</property>
+ <property name="default_view">base_view</property>
  <property name="view_methods">
   <element value="homepage_view"/>
  </property>
