@@ -21,6 +21,8 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   
-  <!-- -*- extra stuff goes here -*- -->
+  <permission id="oxford.homepage.addHomePage"
+      title="OxfordHomepage: Add HomePage"
+      /> 
 
 </configure>
