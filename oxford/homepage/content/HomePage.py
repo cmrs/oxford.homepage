@@ -1,4 +1,6 @@
 from AccessControl import ClassSecurityInfo
+from random import choice
+
 from zope.interface import implements
 
 from plone.app.folder.folder import ATFolder
@@ -31,5 +33,13 @@ class HomePage(ATFolder):
     def canSetConstrainTypes(self):
         return False
 
-registerType(HomePage, PROJECTNAME)
+    security.declarePublic('getRandomHomeImage')
+    def getRandomHomeImage(self):
+        """Returns a random image from the Home Page"""
+        images = self.getFolderContents({'portal_type':'Image',})
+        if not images:
+            return
+        random_image = choice(images).getObject().tag()
+        return random_image
 
+registerType(HomePage, PROJECTNAME)

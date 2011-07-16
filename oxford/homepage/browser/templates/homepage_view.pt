@@ -1,0 +1,163 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="keble.theme">
+<body>
+
+<metal:override fill-slot="column_one_slot">
+</metal:override>
+<metal:override fill-slot="column_two_slot">
+</metal:override>
+
+    <div metal:fill-slot="main">
+        <tal:main-macro metal:define-macro="main"
+            tal:define="main_text_link context/getMainTextLink;
+                        feature_item_link context/getFeatureItemLink;
+                        slideshow_images view/getSlideshowImages">
+
+            <div id="homepage-banner">
+                <tal:images condition="slideshow_images">
+                    <tal:image repeat="image slideshow_images">
+                        <img src="" tal:attributes="src string:${image/absolute_url}" />
+                    </tal:image>
+                </tal:images>
+
+                <tal:noimages condition="not:slideshow_images">
+                    <img src="" tal:attributes="src string:${portal_url}/++resource++keble.theme.images/homepage_banner.gif" />
+                    <img src="" tal:attributes="src string:${portal_url}/++resource++keble.theme.images/homepage_banner_2.jpg" />
+                    <img src="" tal:attributes="src string:${portal_url}/++resource++keble.theme.images/homepage_banner_3.jpg" />
+                </tal:noimages>
+            </div>
+            
+            <div id="homepage-body">
+                <div id="homepage-body-text">
+                    <div id="homepage-main-text">
+                        <h1>
+<!--
+                            Welcome to Keble College, Oxford
+-->
+                            <span metal:use-macro="python:context.widget('title', mode='view')" />
+                        </h1>
+
+<!--
+                        <div id="homepage-body-text-description" class="documentDescription" tal:condition="context/Description">
+                            Keble College is one of the largest of the constituent colleges of the University of Oxford with 410 undergraduate and 235 graduate students. It was the wish of our founders in 1870 to extend access to the University more widely, and the College has a continuing commitment to inclusiveness.
+                        </div>
+-->
+
+                        <div id="homepage-body-text-description" class="documentDescription" tal:condition="context/Description">
+                            <span metal:use-macro="python:context.widget('description', mode='view')" />
+                        </div>
+
+<!--
+                        <div id="homepage-body-text-content">
+<p>Nullam egestas, m    etus in aliquet ullamcorper, massa tellus congue nisl, in tincidunt sem dolor venenatis magna. Nunc convallis enim eu lorem tincidunt sed dapibus leo auctor. Vivamus consequat lobortis ipsum, vitae congue leo pretium eu. Curabitur hendrerit urna vitae odio suscipit in malesuada magna egestas. Donec sed consectetur lectus. Aenean non metus mauris. Pellentesque quis ante dolor, id porta ante. Fusce vitae metus urna.</p>
+<p>Sed vel odio quis     eros pellentesque fermentum. Aliquam in odio vitae eros cursus sollicitudin. Cras vitae libero id dui porttitor ornare non at felis. Donec non nisl faucibus elit scelerisque laoreet at molestie tellus. Nullam massa.</p> 
+                        </div>
+-->
+
+                        <div id="homepage-body-text-content">
+                            <span metal:use-macro="python:context.widget('mainText', mode='view')" />
+                        </div>
+
+                        <div id="homepage-body-text-more" tal:condition="main_text_link">
+                            <div class="more-link">
+                                <a href="#" tal:attributes="href string:${main_text_link/absolute_url}">find out more</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="homepage-feature-item">
+                        <h2>Feature Item</h2>
+
+<!--
+                        <div id="homepage-body-feature-item-content">
+<p>Nullam egestas, m    etus in aliquet ullamcorper, massa tellus congue nisl, in tincidunt sem dolor venenatis magna. Nunc convallis enim eu lorem tincidunt sed dapibus leo auctor. Vivamus consequat lobortis ipsum, vitae congue leo pretium eu. Curabitur hendrerit urna vitae odio suscipit in malesuada magna egestas. Donec sed consectetur lectus. Aenean non metus mauris. Pellentesque quis ante dolor, id porta ante. Fusce vitae metus urna.</p>
+<p>Sed vel odio quis     eros pellentesque fermentum. Aliquam in odio vitae eros cursus sollicitudin. Cras vitae libero id dui porttitor ornare non at felis. Donec non nisl faucibus elit scelerisque laoreet at molestie tellus. Nullam massa.</p> 
+                        </div>
+-->
+
+                        <div id="homepage-body-feature-item-content">
+                            <span metal:use-macro="python:context.widget('featureItem', mode='view')" />
+                        </div>
+
+                        <div id="homepage-body-text-more" tal:condition="feature_item_link">
+                            <div class="more-link">
+                                <a href="#" tal:attributes="href string:${feature_item_link/absolute_url}">find out more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="homepage-body-lists">
+                    <div class="homepage-body-list list-news">
+                        <div class="homepage-list-title">News</div>
+
+                        <div class="homepage-list-content">
+                            <div tal:repeat="item view/getNews" class="homepage-list-item">
+                                <h4>
+                                    <a href="#" tal:attributes="href item/getURL" tal:content="item/Title">Alumni Network launched</a>
+                                </h4>
+                                <img tal:condition="item/hasImage" src="" alt="" tal:attributes="src string:${item/getURL}/image_newshomepage" />
+                                <p tal:content="item/previewText"></p>
+	                            <div class="visualClear"><!-- --></div>
+                                <div class="more-link">
+                                    <a href="#" tal:attributes="href item/getURL">more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="homepage-body-list list-events">
+                        <div class="homepage-list-title">Events</div>
+
+                        <div class="homepage-list-content">
+                            <div tal:repeat="item view/getEvents" class="homepage-list-item">
+                                <h4>
+                                    <a href="#" tal:attributes="href item/getURL" tal:content="item/Title">Alumni Network launched</a>
+                                </h4>
+                                <div class="event-item-date">
+				                    <span tal:content="python:item.start.strftime('%A %d %B %Y')">start date</span>
+                                </div>
+                                <p tal:content="item/previewText"></p>
+                                <div class="more-link">
+                                    <a href="#" tal:attributes="href item/getURL">more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+	                <div class="visualClear"><!-- --></div>
+
+                    <div id="homepage-body-alls">
+                        <div class="homepage-body-all-news">
+                            <div class="more-link">
+                                <a href="#" tal:attributes="href string:${portal_url}/about/news">view all news</a>
+                            </div>
+                        </div>
+                        <div class="homepage-body-all-events">
+                            <div class="more-link">
+                                <a href="#" tal:attributes="href string:${portal_url}/about/events">view all events</a>
+                            </div>
+                        </div>
+                    </div>
+
+	                <div class="visualClear"><!-- --></div>
+
+                    <div id="homepage-feature-image">
+                        <!--
+                        <img src="" tal:attributes="src string:${portal_url}/++resource++keble.theme.images/homepage_feature_image.gif" />
+                        -->
+                        <img src="" tal:attributes="src string:${context/absolute_url}/featureImage" />
+
+                        <div id="homepage-feature-image-greyblock"></div>
+                    </div>
+                </div>
+            </div>
+
+	        <div class="visualClear"><!-- --></div>
+
+        </tal:main-macro>
+    </div>
+</body>
+</html>
