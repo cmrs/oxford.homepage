@@ -33,4 +33,4 @@ class TestCase(PloneSandboxLayer):
         # style product
 
 OXFORD_HOMEPAGE_FIXTURE = TestCase()
-OXFORD_HOMEPAGE_INTEGRATION_TESTING = IntegrationTesting(bases=(OXFORD_HOMEPAGE_FIXTURE,), name="OxfordHomepage:Integration")
+OXFORD_HOMEPAGE_INTEGRATION_TESTING = IntegrationTesting(bases=(OXFORD_HOMEPAGE_FIXTURE,), name="OxfordHomePage:Integration")
