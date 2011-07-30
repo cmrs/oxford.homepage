@@ -6,7 +6,7 @@
     
   <genericsetup:registerProfile
       name="default"
-      title="Homepage"
+      title="Oxford Homepage"
       directory="profiles/default"
       description="Homepage content type with image rotation"
       provides="Products.GenericSetup.interfaces.EXTENSION"
