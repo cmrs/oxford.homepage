@@ -9,7 +9,7 @@ from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 HomePageSchema = ATFolderSchema.copy() + Schema((
 
     TextField(
-        name='mainText',
+        name='text',
         required=True,
         searchable=True,
         storage=AnnotationStorage(),
