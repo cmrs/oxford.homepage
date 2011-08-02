@@ -22,6 +22,9 @@ class TestInstallation(unittest.TestCase):
         portal_types = getToolByName(self.portal, 'portal_types')
         assert 'HomePage' in portal_types.objectIds(), portal_types.objectIds()
 
+    def testPortalFactorySetup(self):
+        assert 'HomePage' in self.portal.portal_factory.getFactoryTypes()
+
 class TestReinstall(unittest.TestCase):
     """Ensure product can be reinstalled safely"""
     layer = OXFORD_HOMEPAGE_INTEGRATION_TESTING
