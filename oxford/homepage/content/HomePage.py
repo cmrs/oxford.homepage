@@ -36,7 +36,9 @@ class HomePage(ATFolder):
     security.declarePublic('getRandomHomeImage')
     def getRandomHomeImage(self):
         """Returns a random image from the Home Page"""
-        images = self.getFolderContents({'portal_type':'Image',})
+        # TODO would be better to pass image portal type in as attribute and default to Image
+        # would need to override the viewlet to pass in the new portal type
+        images = self.getFolderContents()
         if not images:
             return
         random_image = choice(images).getObject().tag()
