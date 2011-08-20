@@ -60,3 +60,4 @@ setup(name='oxford.homepage',
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
       test_suite='oxford.homepage.tests.test_docs.test_suite',
+)
