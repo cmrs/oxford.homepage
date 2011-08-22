@@ -5,7 +5,6 @@ This module contains the tool of oxford.homepage
 import os
 from setuptools import setup, find_packages
 
-
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
@@ -32,8 +31,6 @@ long_description = (
     'Download\n'
     '********\n')
 
-tests_require = ['zope.testing']
-
 setup(name='oxford.homepage',
       version=version,
       description="Homepage content type with image rotation",
@@ -54,10 +51,17 @@ setup(name='oxford.homepage',
       namespace_packages=['oxford', ],
       include_package_data=True,
       zip_safe=False,
-      install_requires=['setuptools',
-                        # -*- Extra requirements: -*-
-                        ],
-      tests_require=tests_require,
-      extras_require=dict(tests=tests_require),
-      test_suite='oxford.homepage.tests.test_docs.test_suite',
+      install_requires=[
+          'setuptools',
+      ],
+      extras_require = {
+          'test': [
+              'plone.app.testing',
+          ]
+      },
+      entry_points="""
+      # -*- Entry points: -*-
+      [z3c.autoinclude.plugin]
+      target = plone
+      """,
 )
