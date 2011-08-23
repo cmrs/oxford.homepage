@@ -3,7 +3,7 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="oxford.homepage">
 <body>
-
+<metal:override fill-slot="column_one_slot"/>
     <div metal:fill-slot="main">
         <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
