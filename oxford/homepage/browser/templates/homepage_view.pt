@@ -4,6 +4,19 @@
       i18n:domain="oxford.homepage">
 <body>
 <metal:override fill-slot="column_one_slot"/>
+<metal:slots fill-slot="column_two_slot">
+    <td id="portal-column-two">
+        <div class="visualPadding">
+            <tal:block replace="structure provider:plone.leftcolumn" />
+        </div>
+    </td>
+    <td>
+        <div class="visualPadding">
+            <tal:block replace="structure provider:plone.rightcolumn" />
+        </div>
+    </td>
+</metal:slots>
+
     <div metal:fill-slot="main">
         <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
