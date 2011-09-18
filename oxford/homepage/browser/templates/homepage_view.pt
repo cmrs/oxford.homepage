@@ -5,12 +5,12 @@
 <body>
 <metal:override fill-slot="column_one_slot"/>
 <metal:slots fill-slot="column_two_slot">
-    <td id="portal-column-two">
+    <td id="portal-column-one">
         <div class="visualPadding">
             <tal:block replace="structure provider:plone.leftcolumn" />
         </div>
     </td>
-    <td>
+    <td id="portal-column-two">
         <div class="visualPadding">
             <tal:block replace="structure provider:plone.rightcolumn" />
         </div>
