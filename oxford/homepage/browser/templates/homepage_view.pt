@@ -5,12 +5,13 @@
 <body>
 <metal:override fill-slot="column_one_slot"/>
 <metal:slots fill-slot="column_two_slot">
-    <td id="portal-column-one">
+    <td id="portal-column-one" class="homepage">
         <div class="visualPadding">
             <tal:block replace="structure provider:plone.leftcolumn" />
         </div>
     </td>
-    <td id="portal-column-two">
+    <td width="1px"><img width="1" height="1px" tal:attributes="src string:$portal_url/++resource++cmrs.theme.images/spacer.gif" /></td>
+    <td id="portal-column-two" class="homepage">
         <div class="visualPadding">
             <tal:block replace="structure provider:plone.rightcolumn" />
         </div>
